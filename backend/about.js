@@ -3,7 +3,10 @@ console.log("about.js connected");
 
 function AboutMeData(){
   return {
-    desc: `I'm currently a Computer Engineering Technology (CNT) student at NAIT and will be officially graduating in April 2026. I have approximately 2 years of experience programming from my educational journey, with proficiencies in embedded and web development. I love going low-level and understanding computers in the most fundamental ways, because that's where all the interesting bits are happening.`,
+    desc: `I am a 2026 Computer Engineering Technology (CNT) graduate from NAIT. 
+    I have approxmiately 2 years of programming experience, with proficiencies in full-stack application development and embedded systems. 
+    My primary interest is in data, as I find it genuinely engaging and fulfilling to solve problems related to obtaining, transforming, transmitting, 
+    and storing data in an efficient and scalable manner.`,
     skills: {
       "Languages":   ["HTML", "CSS", "JavaScript", "C", "PHP", "C#", "Python"],
       "Databases":   ["MySQL", "SQL Server"],
