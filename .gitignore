@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+
+# OS Files
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Nodemon
+nodemon.json
