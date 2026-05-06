@@ -1,8 +1,3 @@
-import express from "express"
-
-const app = express();
-
-export default app;
 //-----------------------------------------------------
 // This is where Express is configured: middleware is registered, routes are 
 // mounted, and error handlers are attached. The order here matters — body parsers must 
@@ -10,6 +5,32 @@ export default app;
 // are applied at the top level so every request is protected regardless of 
 // which route it hits.
 //-----------------------------------------------------
+import express, { Application, json, urlencoded } from "express";
+import helmet from "helmet";                      // Security middleware - prevents common web vulnerabilities
+import cors from "cors";                          // Cross-Origin Resource Sharing
+import config from "./config"
+
+// API support configs
+const CORS_METHODS: string[] = ["GET", "OPTIONS"];  // Only GET and OPTIONS at this moment
+const CORS_HEADERS: string[] = [];                  // GET doesn't have a body, so no headers need to be specified at this time         
+
+// Express Application instance for middleware, routes, and error handlers
+const app: Application = express();
+
+// At the top of every request - sets a collection of HTTP headers
+app.use(helmet());
+
+// Confirming and determining if other origin is permitted
+app.use(cors({
+  origin: config.cors.allowedOrigins,
+  methods: CORS_METHODS,              
+  allowedHeaders: CORS_HEADERS 
+}));
+
+// No body parsers at this time***
+// GET requests don't have a request body (*as a general rule)
+
+export default app;
 /*
 import express, { Application } from 'express';
 import cors from 'cors';
