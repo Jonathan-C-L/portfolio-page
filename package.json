@@ -15,9 +15,10 @@
     "@typescript-eslint/parser": "^7.13.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.3.2",
     "express": "^5.2.1",
+    "helmet": "^8.1.0",
     "nodemon": "^3.1.14",
+    "prettier": "^3.3.2",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
   },
@@ -71,7 +72,6 @@
     "has-flag": "^3.0.0",
     "has-symbols": "^1.1.0",
     "hasown": "^2.0.3",
-    "helmet": "^7.1.0",
     "http-errors": "^2.0.1",
     "iconv-lite": "^0.7.2",
     "ignore-by-default": "^1.0.1",
@@ -126,8 +126,8 @@
     "unpipe": "^1.0.0",
     "v8-compile-cache-lib": "^3.0.1",
     "vary": "^1.1.2",
-    "wrappy": "^1.0.2",
     "winston": "^3.13.0",
+    "wrappy": "^1.0.2",
     "yn": "^3.1.1"
   },
   "repository": {
