@@ -5,10 +5,12 @@
 // are applied at the top level so every request is protected regardless of 
 // which route it hits.
 //-----------------------------------------------------
-import express, { Application, json, urlencoded } from "express";
+import express, { Application, Request, Response, NextFunction } from "express";
 import helmet from "helmet";                      // Security middleware - prevents common web vulnerabilities
 import cors from "cors";                          // Cross-Origin Resource Sharing
 import config from "./config"
+import logger from "./utils/logger"
+
 
 // API support configs
 const CORS_METHODS: string[] = ["GET", "OPTIONS"];  // Only GET and OPTIONS at this moment
@@ -29,6 +31,14 @@ app.use(cors({
 
 // No body parsers at this time***
 // GET requests don't have a request body (*as a general rule)
+
+// Request Logging
+app.use((req: Request, res: Response, next: NextFunction) => {
+  logger.debug(`${req.method} ${req.originalUrl}`); // Log every incoming request
+  next(); // CRITICAL - request will hang indefinitely without this call
+}); 
+
+
 
 export default app;
 /*
