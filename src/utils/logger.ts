@@ -11,7 +11,7 @@ import config from "../config"; // Config object from .env files
 // timestamp - grabs the timestamp of logged event
 // colorize - provides color code in terminal (green = good, yellow = warning, red = error)
 // printf - allows custom output rather than raw json
-// json - logs outputted as json, used in production to be consumed by logging tools (Datalog, CloudWatch)
+// json - logs outputted as json, used in production to be consumed by logging tools (Datadog, CloudWatch)
 const { combine, timestamp, colorize, printf, json  } = format;
 
 const DEV_FORMAT = printf(({level, message, timestamp}) => {
