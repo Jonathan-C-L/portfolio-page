@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+nodemon.json
 
 # Build
 dist/
@@ -14,15 +15,24 @@ build/
 # IDE
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # Logs
+logs/
+*.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # OS Files
 .DS_Store
+Thumbs.db
 
-# Dependencies
-node_modules/
-
-# Nodemon
-nodemon.json
+# Testing and Coverage
+coverage/
+.nyc_output/
