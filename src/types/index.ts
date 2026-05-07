@@ -4,7 +4,7 @@
 // the same place — so a type change propagates everywhere and TypeScript 
 // catches mismatches at compile time rather than at runtime.
 //-----------------------------------------------------
-/*
+
 // ─── API Response ────────────────────────────────────────────────────────────
 
 export interface ApiResponseBody<T = unknown> {
@@ -31,4 +31,3 @@ export interface ContactPayload {
   email: string;
   message: string;
 }
-*/

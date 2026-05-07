@@ -1,4 +1,3 @@
-/*
 import { Response } from 'express';
 import { ApiResponseBody } from '../types';
 
@@ -45,4 +44,3 @@ export class ApiResponse {
     return ApiResponse.error(res, message, 400, errors);
   }
 }
-*/

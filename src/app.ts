@@ -9,8 +9,9 @@ import express, { Application, Request, Response, NextFunction } from "express";
 import helmet from "helmet";                      // Security middleware - prevents common web vulnerabilities
 import cors from "cors";                          // Cross-Origin Resource Sharing
 import config from "./config"
-import logger from "./utils/logger"
-
+import logger from "./utils/logger";
+import router from "./routes";
+import { errorHandler, notFoundHandler } from "./middlewares/error.middleware"
 
 // API support configs
 const CORS_METHODS: string[] = ["GET", "OPTIONS"];  // Only GET and OPTIONS at this moment
@@ -33,12 +34,15 @@ app.use(cors({
 // GET requests don't have a request body (*as a general rule)
 
 // Request Logging
-app.use((req: Request, res: Response, next: NextFunction) => {
+app.use((req: Request, _res: Response, next: NextFunction) => {
   logger.debug(`${req.method} ${req.originalUrl}`); // Log every incoming request
   next(); // CRITICAL - request will hang indefinitely without this call
 }); 
 
+// Mounting router to current API version
+app.use(`/api/${config.apiVersion}`, router);
 
+app.use();
 
 export default app;
 /*
