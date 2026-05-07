@@ -23,12 +23,15 @@ export class ApiResponse {
     res: Response,
     message = 'Internal Server Error',
     statusCode = 500,
-    errors?: string[],
+    errors?: string[],  // Optional way to add multiple, more specific, errors - i.e. validation
   ): Response<ApiResponseBody> {
     return res.status(statusCode).json({
       success: false,
       message,
-      ...(errors && { errors }),
+      // Spread operator ('...')         - inside object literal, merges property into current one
+      // Short-circuit evaluation ('&&') - if nothing in errors[] (left is falsy), nothing will be displayed - undefined is silently ignored
+      //                                 - if something in errors[] (left is truthy), return the right side, then errors spread within the { errors } object
+      ...(errors && { errors }),  
     });
   }
 

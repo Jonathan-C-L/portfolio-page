@@ -6,7 +6,7 @@
 //-----------------------------------------------------
 import { Request, Response, NextFunction } from "express";
 import logger from "../utils/logger";
-import { ApiResponse } from "../utils/api-response"; 
+import { ApiResponse } from "../utils/ApiResponse"; 
 
 // Custom error class for this App - derived from JavaScript's built-in Error
 // This class gives status codes for easier HTTP error debugging
@@ -28,11 +28,10 @@ export const errorHandler = (
   req: Request, 
   res: Response, 
   err: Error | AppError, 
+  // '_' marks that next is an internal/unused parameter
   _next: NextFunction): void => {
-    // Setting status code
-    const statusCode = err instanceof AppError ? err.statusCode : 500;
-    // Setting status message
-    const message = err instanceof AppError ? err.message : "Internal Server Error";
+    const statusCode = err instanceof AppError ? err.statusCode : 500;                // Setting status code
+    const message = err instanceof AppError ? err.message : "Internal Server Error";  // Setting status message
 
     logger.error(`[${req.method}] ${req.path} - ${err.message}`);
 
