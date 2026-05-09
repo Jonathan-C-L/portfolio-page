@@ -5,8 +5,9 @@
 // catches mismatches at compile time rather than at runtime.
 //-----------------------------------------------------
 
-// ─── API Response ────────────────────────────────────────────────────────────
-
+//------------------------------------------------------
+// API Responses
+//------------------------------------------------------
 export interface ApiResponseBody<T = unknown> {
   success: boolean;
   message: string;
@@ -14,8 +15,9 @@ export interface ApiResponseBody<T = unknown> {
   errors?: string[];
 }
 
-// ─── Portfolio ────────────────────────────────────────────────────────────────
-
+//------------------------------------------------------
+// Portfolio
+//------------------------------------------------------
 export interface Project {
   id: string;
   title: string;
