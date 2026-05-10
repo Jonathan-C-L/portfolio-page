@@ -4,7 +4,6 @@
 // This makes them independently testable (no need to mock HTTP), and when you add a 
 // database, only this layer changes.
 //-----------------------------------------------------
-/*
 import { Project, ContactPayload } from '../types';
 import { AppError } from '../middlewares/error.middleware';
 
@@ -21,6 +20,9 @@ const projects: Project[] = [
   },
 ];
 
+//------------------------------------------------------
+// Portfolio Service Definitions
+//------------------------------------------------------
 export class PortfolioService {
   getProjects(): Project[] {
     return projects;
@@ -38,4 +40,3 @@ export class PortfolioService {
     return { received: true };
   }
 }
-*/
