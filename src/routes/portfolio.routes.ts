@@ -12,13 +12,7 @@ const controller = new PortfolioController();
 //------------------------------------------------------
 // Portfolio End-Point Definitions
 //------------------------------------------------------
-router.get("/projects", (req: Request, res: Response, next: NextFunction) => 
-  controller.getProjects(req, res, next));
-
-router.get("/projects/:id", (req: Request, res: Response, next: NextFunction) => 
-  controller.getProjectById(req, res, next));
-
-router.get("/projects/:id/title", (req: Request, res: Response, next: NextFunction) => 
-  controller.Test(req, res, next));
+router.get("/portfolio-page", (req: Request, res: Response, next: NextFunction) => 
+  controller.getPortfolioInfo(req, res, next));
 
 export default router;

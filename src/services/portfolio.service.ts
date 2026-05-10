@@ -4,10 +4,14 @@
 // This makes them independently testable (no need to mock HTTP), and when you add a 
 // database, only this layer changes.
 //-----------------------------------------------------
-import { Project, ContactPayload } from '../types';
+import { Project, MyContact, AboutMe, TechnicalSkills } from '../types';
 import { AppError } from '../middlewares/error.middleware';
+import { TechnicalSkills } from '../types/index';
 
 // Placeholder data — replace with DB queries when ready
+//------------------------------------------------------
+// Placeholder Data
+//------------------------------------------------------
 const projects: Project[] = [
   {
     id: '1',
@@ -20,10 +24,52 @@ const projects: Project[] = [
   },
 ];
 
+const contact: MyContact = {
+  cell: "780-655-6719",
+  email: "jonathanlemain@gmail.com",
+  github: "https://github.com/Jonathan-C-L"
+}
+
+const about: AboutMe = {
+  description: `I am a Computer Engineering Technology (CNT) graduate from the Northern Alberta 
+               Institute of Technology (NAIT). I have approxmiately 2 years of programming 
+               experience, with proficiencies in full-stack application development and 
+               embedded systems. My primary interest is in data, as I find it genuinely engaging 
+               and fulfilling to solve problems related to obtaining, transforming, transmitting, 
+               and storing data in an efficient and scalable manner.`
+}
+
+const skills: TechnicalSkills = {
+  languages: [],
+  databases: [],
+  frameworks: [],
+  tooling: []
+}
 //------------------------------------------------------
 // Portfolio Service Definitions
 //------------------------------------------------------
 export class PortfolioService {
+  getPortfolio(){
+    return {
+      about: this.getAbout(),
+      skills: this.getSkills(),
+      contact: this.getContact(),
+      projects: this.getProjects()
+    }
+  }
+  
+  getAbout(): AboutMe {
+    return about;
+  }
+
+  getContact(): MyContact {
+    return contact;
+  }
+
+  getSkills(): TechnicalSkills {
+    return skills;
+  }
+
   getProjects(): Project[] {
     return projects;
   }
@@ -35,8 +81,8 @@ export class PortfolioService {
   }
 
   // Placeholder: wire up an email service (Nodemailer, Resend, etc.) here
-  sendContact(payload: ContactPayload): { received: boolean } {
-    console.warn('Contact form submission received:', payload);
-    return { received: true };
-  }
+  // sendContact(payload: ContactPayload): { received: boolean } {
+  //   console.warn('Contact form submission received:', payload);
+  //   return { received: true };
+  // }
 }

@@ -33,3 +33,20 @@ export interface ContactPayload {
   email: string;
   message: string;
 }
+
+export interface MyContact {
+  cell: string;
+  email: string;
+  github: string;
+}
+
+export interface AboutMe {
+  description: string;
+}
+
+export interface TechnicalSkills {
+  languages: string[];
+  databases: string[];
+  frameworks: string[];
+  tooling: string[];
+}
