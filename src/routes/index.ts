@@ -5,31 +5,24 @@
 // painful breaking changes later when a frontend or third party is 
 // consuming your endpoints.
 //-----------------------------------------------------
-import { Router } from "express";
-import { getProjects } from "../controllers/portfolio.controller";
+import portfolioRoutes from "../routes/portfolio.routes";
+import { Router, Request, Response } from "express";
+import config from "../config";
 
 const router = Router();
 
-// To access: /api/users
-router.get("/", getProjects);
-
-export default router;
-
-
-/*
-import { Router, Request, Response } from 'express';
-import portfolioRoutes from './portfolio.routes';
-import config from '../config';
-
-const router = Router();
-
-// Health check
-router.get('/health', (_req: Request, res: Response) => {
-  res.status(200).json({ status: 'ok', env: config.env });
+//------------------------------------------------------
+// Health Check
+//------------------------------------------------------
+// To access: /api/v1/health
+router.get("/health", (_req: Request, res: Response) => {
+  res.status(200).json({ status: "ok", env: config.env });;
 });
 
-// Feature routes
-router.use('/', portfolioRoutes);
+//------------------------------------------------------
+// Mounting Routes
+//------------------------------------------------------
+// To access: /api/v1/projects
+router.use("/", portfolioRoutes);
 
 export default router;
-*/
