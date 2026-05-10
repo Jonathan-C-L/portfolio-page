@@ -40,9 +40,11 @@ app.use((req: Request, _res: Response, next: NextFunction) => {
 }); 
 
 // Mounting router to current API version
+// Entry point to all routes (for version 1 of api): .../api/v1/...
 app.use(`/api/${config.apiVersion}`, router);
 
-app.use();
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 export default app;
 /*
