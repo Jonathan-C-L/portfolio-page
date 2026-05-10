@@ -3,14 +3,6 @@
 // All try/catch blocks forward errors to next(err) rather than handling them inline — this keeps error formatting 
 // consistent and lets the global error handler own that responsibility.
 //-----------------------------------------------------
-import { Request, Response } from "express";
-import { CreateUserQueryParams } from "../types/query-params";
-
-export function getProjects(req : Request, res: Response){
-
-}
-
-/*
 import { Request, Response, NextFunction } from 'express';
 import { PortfolioService } from '../services/portfolio.service';
 import { ApiResponse } from '../utils/ApiResponse';
@@ -18,6 +10,9 @@ import { ContactPayload } from '../types';
 
 const portfolioService = new PortfolioService();
 
+//------------------------------------------------------
+// HTTP Request to Service Call Definitions
+//------------------------------------------------------
 export class PortfolioController {
   getProjects(_req: Request, res: Response, next: NextFunction): void {
     try {
@@ -30,13 +25,21 @@ export class PortfolioController {
 
   getProjectById(req: Request, res: Response, next: NextFunction): void {
     try {
-      const project = portfolioService.getProjectById(req.params.id);
+      const project = portfolioService.getProjectById(req.params["id"] as string);
       ApiResponse.success(res, project, 'Project fetched successfully');
     } catch (err) {
       next(err);
     }
   }
 
+  Test(req: Request, res: Response, next: NextFunction): void {
+    try{
+      const title = portfolioService.getProjectById(req.params["id"] as string)["title"];
+      ApiResponse.success(res, title, "Title successfully extracted!");
+    } catch (err){
+      next(err);
+    }
+  }
   sendContact(req: Request, res: Response, next: NextFunction): void {
     try {
       const result = portfolioService.sendContact(req.body as ContactPayload);
@@ -46,4 +49,3 @@ export class PortfolioController {
     }
   }
 }
-*/
