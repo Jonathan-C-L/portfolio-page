@@ -24,10 +24,12 @@ export const notFoundHandler = (req: Request, res: Response): void => {
   ApiResponse.notFound(res, `Route ${req.method} ${req.originalUrl} not found`);
 };
 
+// Signature of the ErrorRequestHandler type from express-serve-static-core is (err, req, res, next)
+// Will throw a compile error if the errorHandler does not match this signature
 export const errorHandler = (
-  req: Request, 
-  res: Response, 
   err: Error | AppError, 
+  req: Request, 
+  res: Response,
   // '_' marks that next is an internal/unused parameter
   _next: NextFunction): void => {
     const statusCode = err instanceof AppError ? err.statusCode : 500;                // Setting status code
