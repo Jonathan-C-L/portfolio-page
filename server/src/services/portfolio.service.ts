@@ -35,9 +35,9 @@ const about: AboutMe = {
 
 const skills: TechnicalSkills = {
   languages: ["C#", "Python", "TypeScript", "JavaScript", "C", "SQL","PHP"],
-  databases: ["MySQL", "SQL Server", "MongoDB"],
+  databases: ["MySQL", "SQL Server"],
   frameworks: ["Express.js", "ASP.NET (8.0)","jQuery", "ADO.NET", "Entity Framework"],
-  tooling: ["Git", "Github", "AI Agents", "Node.js", "VSCode", "Azure"]
+  tooling: ["Git", "Github", "AI Agents", "Node.js"]
 }
 //------------------------------------------------------
 // Portfolio Service Definitions
