@@ -6,7 +6,6 @@
 //-----------------------------------------------------
 import { Project, MyContact, AboutMe, TechnicalSkills } from '../types';
 import { AppError } from '../middlewares/error.middleware';
-import { TechnicalSkills } from '../types/index';
 
 // Placeholder data — replace with DB queries when ready
 //------------------------------------------------------
@@ -31,19 +30,14 @@ const contact: MyContact = {
 }
 
 const about: AboutMe = {
-  description: `I am a Computer Engineering Technology (CNT) graduate from the Northern Alberta 
-               Institute of Technology (NAIT). I have approxmiately 2 years of programming 
-               experience, with proficiencies in full-stack application development and 
-               embedded systems. My primary interest is in data, as I find it genuinely engaging 
-               and fulfilling to solve problems related to obtaining, transforming, transmitting, 
-               and storing data in an efficient and scalable manner.`
+  description: `I am a Computer Engineering Technology (CNT) graduate from the Northern Alberta Institute of Technology (NAIT). I have approxmiately 2 years of programming experience, with proficiencies in full-stack application development and embedded systems. My primary interest is in data, as I find it genuinely engaging and fulfilling to solve problems related to obtaining, transforming, transmitting, and storing data in an efficient and scalable manner.`
 }
 
 const skills: TechnicalSkills = {
-  languages: [],
-  databases: [],
-  frameworks: [],
-  tooling: []
+  languages: ["C#", "Python", "TypeScript", "JavaScript", "C", "SQL","PHP"],
+  databases: ["MySQL", "SQL Server", "MongoDB"],
+  frameworks: ["Express.js", "ASP.NET (8.0)","jQuery", "ADO.NET", "Entity Framework"],
+  tooling: ["Git", "Github", "AI Agents", "Node.js", "VSCode", "Azure"]
 }
 //------------------------------------------------------
 // Portfolio Service Definitions

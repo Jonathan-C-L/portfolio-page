@@ -13,6 +13,6 @@ const controller = new PortfolioController();
 // Portfolio End-Point Definitions
 //------------------------------------------------------
 router.get("/portfolio-page", (req: Request, res: Response, next: NextFunction) => 
-  controller.getPortfolioInfo(req, res, next));
+  controller.getPortfolio(req, res, next));
 
 export default router;
