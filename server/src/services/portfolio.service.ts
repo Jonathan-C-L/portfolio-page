@@ -13,7 +13,7 @@ import { AppError } from '../middlewares/error.middleware';
 //------------------------------------------------------
 const projects: Project[] = [
   {
-    id: '1',
+    _id: '1',
     title: 'Portfolio Site',
     description: 'Personal portfolio built with React and Express.',
     techStack: ['React', 'TypeScript', 'Express', 'Node.js'],
@@ -30,7 +30,9 @@ const contact: MyContact = {
 }
 
 const about: AboutMe = {
-  description: `I am a Computer Engineering Technology (CNT) graduate from the Northern Alberta Institute of Technology (NAIT). I have approxmiately 2 years of programming experience, with proficiencies in full-stack application development and embedded systems. My primary interest is in data, as I find it genuinely engaging and fulfilling to solve problems related to obtaining, transforming, transmitting, and storing data in an efficient and scalable manner.`
+  name: "Jonathan Le",
+  bio: `I am a Computer Engineering Technology (CNT) graduate from the Northern Alberta Institute of Technology (NAIT). I have approxmiately 2 years of programming experience, with proficiencies in full-stack application development and embedded systems. My primary interest is in data, as I find it genuinely engaging and fulfilling to solve problems related to obtaining, transforming, transmitting, and storing data in an efficient and scalable manner.`,
+  description: `"We are what we repeatedly do. Exellence, then, is not an act, but a habit" -Will Durant`
 }
 
 const skills: TechnicalSkills = {
@@ -69,7 +71,7 @@ export class PortfolioService {
   }
 
   getProjectById(id: string): Project {
-    const project = projects.find((p) => p.id === id);
+    const project = projects.find((p) => p._id === id);
     if (!project) throw new AppError(`Project with id "${id}" not found`, 404);
     return project;
   }

@@ -19,7 +19,7 @@ export interface ApiResponseBody<T = unknown> {
 // Portfolio
 //------------------------------------------------------
 export interface Project {
-  id: string;
+  _id: string;
   title: string;
   description: string;
   techStack: string[];
@@ -41,6 +41,8 @@ export interface MyContact {
 }
 
 export interface AboutMe {
+  name: string;
+  bio: string;
   description: string;
 }
 
