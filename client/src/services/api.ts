@@ -8,7 +8,7 @@ const api = axios.create({
 // Exporting function
 export const getPortfolio = async () => {
     // Capturing data from portfolio API
-    const {data} = await api.get("/portfolio");
+    const { data } = await api.get("/portfolio");
     return data;
 };
 

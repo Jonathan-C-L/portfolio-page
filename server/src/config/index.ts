@@ -6,9 +6,12 @@
 //-----------------------------------------------------
 import dotenv from "dotenv";
 import { API_VERSION } from '../../../shared/constants';
+import path from "node:path";
 
 // Load environment variables from .env/.env.local
-dotenv.config(); 
+dotenv.config({
+  path: path.resolve(__dirname, "../../.env")
+}); 
 
 // Defaults for my development environment
 const DEFAULT_PORT: number = 3000;

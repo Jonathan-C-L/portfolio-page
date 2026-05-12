@@ -28,6 +28,9 @@ const app: Application = express();
 // At the top of every request - sets a collection of HTTP headers
 app.use(helmet());
 
+// DIAGNOSTICS
+logger.info(`Allowed Origins: ${JSON.stringify(config.cors.allowedOrigins)}`);
+
 // Confirming and determining if other origin is permitted
 app.use(cors({
   origin: config.cors.allowedOrigins,

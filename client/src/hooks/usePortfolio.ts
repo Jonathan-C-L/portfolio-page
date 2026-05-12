@@ -1,3 +1,6 @@
+//------------------------------------------------------
+// Hooks - Data Fetching
+//------------------------------------------------------
 import { useState, useEffect } from "react";
 import { getPortfolio } from "../services/api";
 import { PortfolioData } from "../../../shared/types";
@@ -15,7 +18,7 @@ export const usePortfolio = (): UsePortfolioReturn => {
 
     useEffect(() => {
         getPortfolio()
-        .then((res) => setData(res.Data))
+        .then((res) => setData(res.data))
         .catch(() => setError("Failed to load portfolio data"))
         .finally(() => setLoading(false));
     });

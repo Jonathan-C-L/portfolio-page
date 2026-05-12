@@ -1,5 +1,4 @@
 //------------------------------------------------------
-// Jonathan Le
 // Shared client and server side types
 //------------------------------------------------------
 export interface Project {

@@ -4,12 +4,11 @@
 // This makes them independently testable (no need to mock HTTP), and when you add a 
 // database, only this layer changes.
 //-----------------------------------------------------
-import { Project, MyContact, AboutMe, TechnicalSkills } from '../../../shared/types';
+import { Project, MyContact, AboutMe, TechnicalSkills, PortfolioData } from '../../../shared/types';
 import { AppError } from '../middlewares/error.middleware';
 
-// Placeholder data — replace with DB queries when ready
 //------------------------------------------------------
-// Placeholder Data
+// Placeholder Data - replace with DB queries when ready
 //------------------------------------------------------
 const projects: Project[] = [
   {
@@ -45,12 +44,12 @@ const skills: TechnicalSkills = {
 // Portfolio Service Definitions
 //------------------------------------------------------
 export class PortfolioService {
-  getPortfolio(){
+  getPortfolio(): PortfolioData{
     return {
       about: this.getAbout(),
-      skills: this.getSkills(),
+      projects: this.getProjects(),
       contact: this.getContact(),
-      projects: this.getProjects()
+      skills: this.getSkills()
     }
   }
   
