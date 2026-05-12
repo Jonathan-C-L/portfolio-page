@@ -4,7 +4,7 @@
 // This makes them independently testable (no need to mock HTTP), and when you add a 
 // database, only this layer changes.
 //-----------------------------------------------------
-import { Project, MyContact, AboutMe, TechnicalSkills } from '../types';
+import { Project, MyContact, AboutMe, TechnicalSkills } from '../../../shared/types';
 import { AppError } from '../middlewares/error.middleware';
 
 // Placeholder data — replace with DB queries when ready

@@ -4,51 +4,12 @@
 // the same place — so a type change propagates everywhere and TypeScript 
 // catches mismatches at compile time rather than at runtime.
 //-----------------------------------------------------
-
 //------------------------------------------------------
-// API Responses
+// Server Only Types
 //------------------------------------------------------
 export interface ApiResponseBody<T = unknown> {
   success: boolean;
   message: string;
   data?: T;
   errors?: string[];
-}
-
-//------------------------------------------------------
-// Portfolio
-//------------------------------------------------------
-export interface Project {
-  _id: string;
-  title: string;
-  description: string;
-  techStack: string[];
-  repoUrl?: string;
-  liveUrl?: string;
-  createdAt: string;
-}
-
-export interface ContactPayload {
-  name: string;
-  email: string;
-  message: string;
-}
-
-export interface MyContact {
-  cell: string;
-  email: string;
-  github: string;
-}
-
-export interface AboutMe {
-  name: string;
-  bio: string;
-  description: string;
-}
-
-export interface TechnicalSkills {
-  languages: string[];
-  databases: string[];
-  frameworks: string[];
-  tooling: string[];
 }

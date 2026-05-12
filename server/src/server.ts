@@ -21,8 +21,8 @@ const shutdown = (signal: string): void => {
 
 // Allows graceful shutdown of process without cutting off requests mid-flight
 // Unix signals - OS messages to this process
-process.on("SIGTERM", () => shutdown("SIGTERM")); // Request to terminate - used by Docket, Kubernetes, Railway, etc.
-process.on("SIGINT", () => shutdown("SIGINT"));   // Sent when Ctrl + C is pressed in terminal during development
+process.on("SIGTERM", () => shutdown("SIGTERM")); // Signal Terminate - used by Docket, Kubernetes, Railway, etc.
+process.on("SIGINT", () => shutdown("SIGINT"));   // Signal Interrupt - sent when Ctrl + C is pressed in terminal during development
 
 // Exceptions that slip through try/catch blocks
 process.on("uncaughtException", (error) => {
