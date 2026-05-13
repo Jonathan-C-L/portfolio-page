@@ -13,9 +13,13 @@ export const getPortfolioTimeout = <T>(): T | null => {
 
         if (!cached) return null;
 
+        // Destructure cached data
         const { data, timestamp }: PortfolioTimeout<T> = JSON.parse(cached);
+        
+        // Check if the 24 hour timeout has expired 
         const isExpired = Date.now() - timestamp > CACHE_TTL;
 
+        // Remove previously cached data
         if (isExpired){
             localStorage.removeItem(CACHE_KEY);
             return null;

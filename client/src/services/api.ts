@@ -10,6 +10,7 @@ const api = axios.create({
 export const getPortfolio = async () => {
     const cached = getPortfolioTimeout();
 
+    // If there is something in the cache, use that information
     if (cached) return { data: cached };
 
     // Capturing data from portfolio API every 24 hours
