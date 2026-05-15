@@ -5,40 +5,27 @@ export interface Project {
   _id: string;
   title: string;
   description: string;
-  techStack: string[];
-  repoUrl?: string;
-  liveUrl?: string;
-  createdAt: string;
+  learned: string;
+  repo: string;
+  src?: string;
 }
 
-export interface ContactPayload {
-  name: string;
-  email: string;
-  message: string;
-}
-
-export interface MyContact {
-  cell: string;
-  email: string;
-  github: string;
+export interface ContactItem {
+  icon: string;
+  label: string;
+  value: string;
+  href?: string;
 }
 
 export interface AboutMe {
   name: string;
   bio: string;
   description: string;
-}
-
-export interface TechnicalSkills {
-  languages: string[];
-  databases: string[];
-  frameworks: string[];
-  tooling: string[];
+  skills: Record<string, string[]>;
 }
 
 export interface PortfolioData {
-    about: AboutMe;
-    projects: Project[];
-    contact: MyContact;
-    skills: TechnicalSkills;
+  about: AboutMe;
+  projects: Project[];
+  contact: ContactItem[];
 }

@@ -13,7 +13,7 @@ interface UsePortfolioReturn {
  * Typical uses:
  *  - Fetching data from API (this specific use case)
  *  - Manually chaning the DOM (i.e. setting doc title)
- *  - Setting up subscriptions or timers
+ *  - Setting up subscriptions to websocket or timers
  */
 export const usePortfolio = (): UsePortfolioReturn => {
     const [data, setData] = useState<PortfolioData | null>(null);
@@ -25,7 +25,7 @@ export const usePortfolio = (): UsePortfolioReturn => {
         .then((res) => setData(res.data))
         .catch(() => setError("Failed to load portfolio data"))
         .finally(() => setLoading(false));
-    });
+    }, []);
 
     return { data, loading, error };
 };

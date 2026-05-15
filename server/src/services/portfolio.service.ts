@@ -4,10 +4,10 @@
 // This makes them independently testable (no need to mock HTTP), and when you add a 
 // database, only this layer changes.
 //-----------------------------------------------------
-import { Project, MyContact, AboutMe, TechnicalSkills, PortfolioData } from '../../../shared/types';
+import { Project, ContactItem, AboutMe, PortfolioData } from '../../../shared/types';
 import { projects } from '../data/projects.data';
 import { AppError } from '../middlewares/error.middleware';
-import { contact } from '../data/contact.data';
+import { contactInfo } from '../data/contact.data';
 import { about } from '../data/about.data';
 import { skills } from '../data/skills.data';
 
@@ -20,7 +20,6 @@ export class PortfolioService {
       about: this.getAbout(),
       projects: this.getProjects(),
       contact: this.getContact(),
-      skills: this.getSkills()
     }
   }
   
@@ -28,12 +27,8 @@ export class PortfolioService {
     return about;
   }
 
-  getContact(): MyContact {
-    return contact;
-  }
-
-  getSkills(): TechnicalSkills {
-    return skills;
+  getContact(): ContactItem[] {
+    return contactInfo;
   }
 
   getProjects(): Project[] {

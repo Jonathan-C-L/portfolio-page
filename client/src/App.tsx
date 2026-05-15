@@ -1,20 +1,48 @@
 import { usePortfolio } from "./hooks/usePortfolio";
-import Projects from "./components/sections/Projects";
+import { useToast } from './hooks/useToast';
+
+import { Projects } from "./components/sections/Projects";
+import { ToastNotificaiton } from './components/common/Toast';
+import { Hero } from './components/sections/Hero';
+import { Nav } from './components/sections/Nav';
+import { About } from './components/sections/About';
+import { Footer } from './components/sections/Footer';
+import { Contact } from './components/sections/Contact';
  
 const App = () => {
   const { data, loading, error } = usePortfolio();
+  const { toast, showToast } = useToast();
+
+  // Smoothly scroll to a specific part clicked on
+  const handleNavigate = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({behavior: "smooth"});
+  };
+
+  const handleCopy = (value: string) => {
+    // Copy text to clipboard
+    navigator.clipboard.writeText(value)
+    // Then display copy status
+    .then(
+      () => showToast("Copied to clipboard!", false),
+      () => showToast("Copy failed", true)
+    );
+  }
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
+  // Main display
   return (
     <main>
-      <section id="about">
-        <h1>{data?.about.name}</h1>
-        <h3>{data?.about.description}</h3><br />
-        <p>{data?.about.bio}</p>
-      </section>
+      <Nav onNavigate={handleNavigate}/>
+      <Hero  onNavigate={handleNavigate} description={data?.about.description}/>
+      <hr className="divider"/>
+      <About data={data?.about}/>
+      <hr className="divider"/>
       <Projects projects={data?.projects} />
+      <Contact items={data?.contact} onCopy={handleCopy} />
+      <Footer />
+      {toast && <ToastNotificaiton message={toast.message} isError={toast.isError} />}
     </main>
   );
 };

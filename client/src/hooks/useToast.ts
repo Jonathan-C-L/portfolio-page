@@ -1,10 +1,16 @@
 import { useState, useCallback } from "react";
-import { Toast } from '../types/index';
+
+interface Toast {
+    message: string;
+    isError: boolean;
+}
 
 /**
  * useCallback - does not execute function, only "remembers" it
  * Used for efficiency-sake because JavaScript functions are objects
  *  - Prevents re-rendering from the function
+ *  - Avoid dependency loops
+ *  - Stable custom hooks
  */
 export const useToast = () => {
     const [toast, setToast] = useState<Toast | null>(null);
