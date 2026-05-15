@@ -17,17 +17,16 @@ export const Contact = ({items, onCopy}: ContactProps) => {
                 <div key={item.label} className="contact-row" onClick={() => onCopy(item.value)}>
                     <div className="contact-icon">{item.icon}</div>
                     <div>
-                        <div className="contact-label">{item.label}
+                        <div className="contact-label">{item.label}</div>
                         {item.href ? 
                         (<a 
                             className="contact-value" 
                             href={item.href} 
                             target={item.href.startsWith('http') ? '_blank' : '_self'} 
-                            rel="noreferrer"></a>) : 
-                            (<></>)}
-                        </div>
-                        <span className="copy-hint">click to copy</span>
+                            rel="noreferrer">{item.value}</a>) : 
+                            (<span className="contact-value">{item.value}</span>)}
                     </div>
+                    <span className="copy-hint">click to copy</span>
                 </div>
                 ))}
             </div>

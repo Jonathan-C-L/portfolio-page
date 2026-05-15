@@ -35,7 +35,7 @@ const App = () => {
   return (
     <main>
       <Nav onNavigate={handleNavigate}/>
-      <Hero  onNavigate={handleNavigate} description={data?.about.description}/>
+      <Hero onNavigate={handleNavigate} description={data?.about.description}/>
       <hr className="divider"/>
       <About data={data?.about}/>
       <hr className="divider"/>

@@ -4,10 +4,10 @@ import { AboutMe } from '../../../shared/types';
 // Placeholder Data - replace with DB queries when ready
 //------------------------------------------------------
 const skillItems: Record<string, string[]> = {
-  "Languages":   ["HTML", "CSS", "JavaScript", "C", "PHP", "C#", "Python"],
-  "Databases":   ["MySQL", "SQL Server"],
-  "Frameworks":  ["jQuery", "ASP.NET ADO", "ASP.NET Entity"],
-  "Tooling":     ["Git", "GitHub", "VSCode", "Azure"]
+  "Languages":   ["C#", "Python", "TypeScript", "JavaScript", "C", "PHP"],
+  "Databases":   ["MySQL", "SQL Server", "MariaDB"],
+  "Frameworks":  ["Node.js", "Express.js", "React", "jQuery", ".NET (8.0)", "Entity Framework"],
+  "Tooling":     ["Git", "GitHub", "VS Code"]
 }
 
 export const about: AboutMe = {

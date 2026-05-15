@@ -12,7 +12,7 @@ export const About = ({data}: AboutMeProp) => {
             <div className="section-label">Background</div>
             <h2 className="section-title fade-in">About Me</h2>
             <div className="about-grid fade-in">
-                <div className="about-text">{data.description}</div>
+                <div className="about-text">{data.bio}</div>
                 <div className="skills-block">
                 {Object.entries(data.skills).map(([category, items]) => (
                     <div key={category} className="skill-row">
