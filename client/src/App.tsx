@@ -8,6 +8,7 @@ import { Nav } from './components/sections/Nav';
 import { About } from './components/sections/About';
 import { Footer } from './components/sections/Footer';
 import { Contact } from './components/sections/Contact';
+import { useFadeIn } from "./hooks/useFadeIn";
  
 const App = () => {
   const { data, loading, error } = usePortfolio();
@@ -27,6 +28,8 @@ const App = () => {
       () => showToast("Copy failed", true)
     );
   }
+
+  useFadeIn([data]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;

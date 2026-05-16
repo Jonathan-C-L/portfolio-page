@@ -15,9 +15,7 @@ export const Nav = ({ onNavigate }: NavProps) => {
     return (
         <nav>
             <div className="nav-logo">JL<span className="cursor">.</span></div>
-            <button className="hamburger" id="hamburger" aria-label="Menu" onClick={() => setIsOpen(prev => !prev)}>
-                <span></span><span></span><span></span>
-            </button>
+            <button className="hamburger" id="hamburger" aria-label="Menu" onClick={() => setIsOpen(prev => !prev)}></button>
             <ul className="nav-links" id="nav-links">
                 <li><a onClick={() => handleNav("about")}>About</a></li>
                 <li><a onClick={() => handleNav("projects")}>Projects</a></li>

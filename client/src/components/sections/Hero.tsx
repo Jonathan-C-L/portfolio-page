@@ -11,7 +11,7 @@ interface HeroProps {
 export const Hero = ({ description, onNavigate }: HeroProps) => {
     return (
         <section id="hero">
-            <div className="hero-tag fade-in">Software Engineer · Graduated Apr 2026</div>
+            <div className="hero-tag fade-in">Software Developer</div>
                 <h1 className="hero-name fade-in crt">Jonathan<br/><em>Le</em></h1>
                 <p className="hero-desc fade-in">
                     <i>{description}</i>
