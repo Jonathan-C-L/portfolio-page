@@ -6,7 +6,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { PortfolioService } from '../services/portfolio.service';
 import { ApiResponse } from '../utils/ApiResponse';
-import { ContactPayload } from '../types';
 
 const portfolioService = new PortfolioService();
 
