@@ -7,16 +7,31 @@ import { AppError } from '../middlewares/error.middleware';
 import { contactInfo } from '../data/contact.data';
 import { about } from '../data/about.data';
 
+interface Cache<T> {
+  data: T;
+  timestamp: number;
+}
+
+const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hour in ms
+
 //------------------------------------------------------
 // Portfolio Service Definitions
 //------------------------------------------------------
 export class PortfolioService {
+  private cache: Cache<PortfolioData> | null = null;
+
   getPortfolio(): PortfolioData{
-    return {
-      about: this.getAbout(),
-      projects: this.getProjects(),
-      contact: this.getContact(),
+    // Return cached data if it is still within the 24 hour window of the previous fetch
+    if (this.cache && Date.now() - this.cache.timestamp < CACHE_TTL) {
+      return this.cache.data;
     }
+
+    const projects: Project[] = this.getProjects();
+    const about: AboutMe = this.getAbout();
+    const contact: ContactItem[] = this.getContact();
+
+    const data: PortfolioData = { projects, about, contact };
+    return data;
   }
   
   getAbout(): AboutMe {
@@ -36,10 +51,4 @@ export class PortfolioService {
     if (!project) throw new AppError(`Project with id "${id}" not found`, 404);
     return project;
   }
-
-  // Placeholder: wire up an email service (Nodemailer, Resend, etc.) here
-  // sendContact(payload: ContactPayload): { received: boolean } {
-  //   console.warn('Contact form submission received:', payload);
-  //   return { received: true };
-  // }
 }
