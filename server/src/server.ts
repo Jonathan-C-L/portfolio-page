@@ -1,6 +1,5 @@
 //-----------------------------------------------------
-// Author:  Jonathan Le
-// Purpose: Entry point for all other components
+// Entry point for the server application
 //-----------------------------------------------------
 import config from "./config"
 import app from "./app";

@@ -1,8 +1,7 @@
-/**
- * Data object definition
- * description - from AboutMe data and carries quote or any other descriptions I want
- * onNavigate - event callback when buttons are clicked
- */
+//------------------------------------------------------
+// Defining of DOM elements for Hero section (first to be seen by visitor)
+//------------------------------------------------------
+// Data type for the hero component - holds a description and navigation function
 interface HeroProps {
     description: string | undefined;
     onNavigate: (id: string) => void;
@@ -21,8 +20,8 @@ export const Hero = ({ description, onNavigate }: HeroProps) => {
                 <button className="btn btn-ghost" onClick={() => onNavigate("contact")}>Get in Touch</button>
             </div>
             <div className="hero-badge">
-            <div className="dot"></div>
-            Open to opportunities
+                <div className="dot"></div>
+                Open to opportunities
             </div>
         </section>
     );

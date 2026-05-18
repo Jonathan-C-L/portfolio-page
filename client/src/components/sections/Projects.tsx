@@ -1,10 +1,15 @@
+//------------------------------------------------------
+// Defining of DOM elements for Projects section
+//------------------------------------------------------
 import { Project } from "../../../../shared/types";
 
+// Data type for storing projects array from portfolio API
 interface ProjectProps {
     projects: Project[] | undefined;
 }
 
 export const Projects = ({ projects }: ProjectProps) => {
+    // Return nothing if no data fetched from portfolio API
     if (!projects) return null;
 
     return (

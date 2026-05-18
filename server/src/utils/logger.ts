@@ -1,7 +1,5 @@
 //-----------------------------------------------------
-// console.log is replaced with Winston for two reasons: log levels (debug/info/warn/error) let you filter noise 
-// by environment, and JSON output in production makes logs parseable by tools like Datadog or CloudWatch. 
-// The dev format is colorized and human-readable, while prod emits structured JSON — both configured automatically based on NODE_ENV.
+// Logging utility using Winston
 //-----------------------------------------------------
 import { createLogger, format, transports } from 'winston';  // Logging library
 import config from "../config"; // Config object from .env files

@@ -1,15 +1,11 @@
 //-----------------------------------------------------
-// This is where the actual work happens, completely decoupled from HTTP. 
-// Services don't know about req or res — they receive plain data and return plain data. 
-// This makes them independently testable (no need to mock HTTP), and when you add a 
-// database, only this layer changes.
+// Logic processing for API end points related to portfolio data
 //-----------------------------------------------------
 import { Project, ContactItem, AboutMe, PortfolioData } from '../../../shared/types';
 import { projects } from '../data/projects.data';
 import { AppError } from '../middlewares/error.middleware';
 import { contactInfo } from '../data/contact.data';
 import { about } from '../data/about.data';
-import { skills } from '../data/skills.data';
 
 //------------------------------------------------------
 // Portfolio Service Definitions

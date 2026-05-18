@@ -1,9 +1,5 @@
 //-----------------------------------------------------
-// This is where Express is configured: middleware is registered, routes are 
-// mounted, and error handlers are attached. The order here matters — body parsers must 
-// come before routes, and error handlers must come last. Helmet and CORS 
-// are applied at the top level so every request is protected regardless of 
-// which route it hits.
+// Express server configuration and setup
 //-----------------------------------------------------
 import express, { Application, Request, Response, NextFunction } from "express";
 import helmet from "helmet";                      // Security middleware - prevents common web vulnerabilities

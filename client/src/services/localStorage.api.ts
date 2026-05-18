@@ -1,7 +1,12 @@
+//------------------------------------------------------
+// Client side rate limiting of portfolio API calls
+//------------------------------------------------------
+
 // Variables to limit portfolio API calls to once per day
 const CACHE_KEY: string = "get_portfolio";      // Key for localStorage 
 const CACHE_TTL: number = 24 * 60 * 60 * 1000;  // 24 hours in ms
 
+// Data type for localStorage - time to determine 24 hr interval; cached data for use to render
 interface PortfolioTimeout<T> {
     data: T;
     timestamp: number;

@@ -1,3 +1,6 @@
+//------------------------------------------------------
+// Primary entry point for insertion of app into index.html
+//------------------------------------------------------
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'

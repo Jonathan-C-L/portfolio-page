@@ -1,5 +1,9 @@
+//------------------------------------------------------
+// Toast hook
+//------------------------------------------------------
 import { useState, useCallback } from "react";
 
+// Data type to hold information on the message and state of hook
 interface Toast {
     message: string;
     isError: boolean;
@@ -7,6 +11,7 @@ interface Toast {
 
 /**
  * useCallback - does not execute function, only "remembers" it
+ * In this case, the Toast notfication only needs to be rendered when the isError state changes
  * Used for efficiency-sake because JavaScript functions are objects
  *  - Prevents re-rendering from the function
  *  - Avoid dependency loops

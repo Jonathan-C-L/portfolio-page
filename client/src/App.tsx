@@ -1,3 +1,6 @@
+//------------------------------------------------------
+// Entry point for assembly of app
+//------------------------------------------------------
 import { usePortfolio } from "./hooks/usePortfolio";
 import { useToast } from './hooks/useToast';
 
@@ -29,6 +32,7 @@ const App = () => {
     );
   }
 
+  // Re-render after components have been made - without will cause components to fade and not reappear
   useFadeIn([data]);
 
   if (loading) return <p>Loading...</p>;

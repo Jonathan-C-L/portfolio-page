@@ -1,9 +1,5 @@
 //-----------------------------------------------------
-// Acts as a switchboard. It mounts feature routers under your 
-// versioned API prefix (/api/v1) and owns the /health endpoint. 
-// Versioning your API from day one costs nothing and saves you from 
-// painful breaking changes later when a frontend or third party is 
-// consuming your endpoints.
+// Access point for all API routes
 //-----------------------------------------------------
 import portfolioRoutes from "../routes/portfolio.routes";
 import { Router, Request, Response } from "express";

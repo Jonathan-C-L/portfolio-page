@@ -1,3 +1,6 @@
+//------------------------------------------------------
+// ApiResponse class to standardize the format of all API responses across the code base
+//------------------------------------------------------
 import { Response } from 'express';
 import { ApiResponseBody } from '../types';
 

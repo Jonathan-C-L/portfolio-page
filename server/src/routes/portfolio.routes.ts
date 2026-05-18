@@ -1,7 +1,5 @@
 //-----------------------------------------------------
-// Keeps route definitions thin — just method, path, middleware, and a pointer to the controller. 
-// Wrapping controller methods in arrow functions ((req, res, next) => controller.method(req, res, next)) 
-// preserves the correct this context when using classes, avoiding a common runtime bug.
+// Definition for portfolio end points
 //-----------------------------------------------------
 import { Router, Request, Response, NextFunction } from "express";
 import { PortfolioController } from "../controllers/portfolio.controller"

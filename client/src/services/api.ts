@@ -1,3 +1,6 @@
+//------------------------------------------------------
+// Portfolio API connection
+//------------------------------------------------------
 import axios from "axios";
 import { API_BASE_PATH } from '../../../shared/constants';
 import { getPortfolioTimeout, setPortfolioTimeout } from './localStorage.api';

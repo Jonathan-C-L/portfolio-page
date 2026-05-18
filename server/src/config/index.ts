@@ -1,8 +1,5 @@
 //-----------------------------------------------------
-// All process.env access is funnelled through one object marked as const. 
-// This means if an env variable name changes, you fix it in one place 
-// rather than hunting through the codebase. It also makes it easy to see 
-// at a glance what environment variables your app depends on.
+// Access point for server configuration
 //-----------------------------------------------------
 import dotenv from "dotenv";
 import { API_VERSION } from '../../../shared/constants';

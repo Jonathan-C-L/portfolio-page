@@ -1,5 +1,9 @@
+//------------------------------------------------------
+// Defining of DOM elements for Nav section
+//------------------------------------------------------
 import { useState } from "react";
 
+// Data type for navigation function
 interface NavProps {
     onNavigate: (id: string) => void;
 }
@@ -9,7 +13,7 @@ export const Nav = ({ onNavigate }: NavProps) => {
 
     const handleNav = (id: string) => {
         onNavigate(id);
-        setIsOpen(false);
+        setIsOpen(isOpen); // This doesn't do anything
     }
 
     return (

@@ -1,11 +1,16 @@
+//------------------------------------------------------
+// Defining of DOM elements for About section
+//------------------------------------------------------
 import { AboutMe } from '../../../../shared/types';
 
+// Data type for storing AboutMe data for portfolio API regarding
 interface AboutMeProp {
     data: AboutMe | undefined;
 }
 
 export const About = ({data}: AboutMeProp) => {
-    if (!data) return null;
+    // Don't render anything if no data returned (might change this in the future to have return a data not found section)
+    if (!data) return null; 
 
     return (
         <section id="about">

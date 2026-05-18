@@ -1,11 +1,16 @@
+//------------------------------------------------------
+// Defining of DOM elements for Contact section
+//------------------------------------------------------
 import { ContactItem } from '../../../../shared/types';
 
+// Data type holding my contact information and a clipboard copy function
 interface ContactProps {
     items: ContactItem[] | undefined;
     onCopy: (value: string) => void;
 }
 
 export const Contact = ({items, onCopy}: ContactProps) => {
+    // If nothing fetched from portfolio API, empty in the webpage
     if (!items) return null;
 
     return (

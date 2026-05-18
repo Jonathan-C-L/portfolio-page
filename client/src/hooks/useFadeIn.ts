@@ -1,3 +1,6 @@
+//------------------------------------------------------
+// Hook for DOM component fade in effect 
+//------------------------------------------------------
 import { useEffect } from 'react';
 
 export const useFadeIn = (deps: unknown[] = []) => {

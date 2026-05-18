@@ -1,3 +1,6 @@
+//------------------------------------------------------
+// Defining of DOM elements for Footer section
+//------------------------------------------------------
 export const Footer = () => {
     return (
         <footer>
