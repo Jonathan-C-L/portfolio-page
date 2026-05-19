@@ -21,7 +21,11 @@ const config = {
   apiVersion: API_VERSION,                              // API version taken from shared folder in root dir
   cors: {                                               // Defining Cross-Orgin Resources, default localhost:3000
     allowedOrigins: process.env.ALLOWED_ORIGINS?.split(',') ?? [`http://localhost:${DEFAULT_PORT}`]
+  },
+  github: {
+    token: process.env.GITHUB_TOKEN ?? "",              // GitHub token for fetching private repos, default empty string if none
+    username: process.env.GITHUB_USERNAME ?? ""         // GitHub username for fetching repos, default empty string if none
   }
-};
+} as const; // Readyonly config object
 
 export default config;

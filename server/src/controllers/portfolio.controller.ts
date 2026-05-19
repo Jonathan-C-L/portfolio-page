@@ -46,13 +46,4 @@ export class PortfolioController {
       next(err);
     }
   }
-
-  // sendContact(req: Request, res: Response, next: NextFunction): void {
-  //   try {
-  //     const result = portfolioService.sendContact(req.body as ContactPayload);
-  //     ApiResponse.success(res, result, 'Message received — thank you!');
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // }
 }

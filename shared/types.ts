@@ -1,6 +1,11 @@
 //------------------------------------------------------
 // Shared client and server side types
 //------------------------------------------------------
+export interface Cache<T> {
+  data: T;
+  timestamp: number;
+}
+
 export interface Project {
   _id: string;
   title: string;

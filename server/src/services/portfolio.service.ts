@@ -1,16 +1,11 @@
 //-----------------------------------------------------
 // Logic processing for API end points related to portfolio data
 //-----------------------------------------------------
-import { Project, ContactItem, AboutMe, PortfolioData } from '../../../shared/types';
+import { Project, ContactItem, AboutMe, PortfolioData, Cache } from '../../../shared/types';
 import { projects } from '../data/projects.data';
 import { AppError } from '../middlewares/error.middleware';
 import { contactInfo } from '../data/contact.data';
 import { about } from '../data/about.data';
-
-interface Cache<T> {
-  data: T;
-  timestamp: number;
-}
 
 const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hour in ms
 
