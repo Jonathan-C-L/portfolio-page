@@ -1,16 +1,11 @@
 //------------------------------------------------------
 // Client side rate limiting of portfolio API calls
 //------------------------------------------------------
+import { Cache } from '../../../shared/types';
 
 // Variables to limit portfolio API calls to once per day
 const CACHE_KEY: string = "get_portfolio";      // Key for localStorage 
 const CACHE_TTL: number = 24 * 60 * 60 * 1000;  // 24 hours in ms
-
-// Data type for localStorage - time to determine 24 hr interval; cached data for use to render
-interface PortfolioTimeout<T> {
-    data: T;
-    timestamp: number;
-}
 
 export const getPortfolioTimeout = <T>(): T | null => {
     try{
@@ -19,7 +14,7 @@ export const getPortfolioTimeout = <T>(): T | null => {
         if (!cached) return null;
 
         // Destructure cached data
-        const { data, timestamp }: PortfolioTimeout<T> = JSON.parse(cached);
+        const { data, timestamp }: Cache<T> = JSON.parse(cached);
         
         // Check if the 24 hour timeout has expired 
         const isExpired = Date.now() - timestamp > CACHE_TTL;
@@ -38,7 +33,7 @@ export const getPortfolioTimeout = <T>(): T | null => {
 };
 
 export const setPortfolioTimeout = <T>(data: T): void => {
-    const entry: PortfolioTimeout<T> = {
+    const entry: Cache<T> = {
         data,
         timestamp: Date.now()
     }
