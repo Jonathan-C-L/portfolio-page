@@ -34,18 +34,7 @@ function renderProjects(){
     card.target = "_blank";
     card.id = project.id;
 
-    // image placeholder gradient (since assets aren't accessible in preview)
-    const gradients = {
-      "to-do":  "linear-gradient(135deg, #1c2a4a 0%, #0f3d2e 100%)",
-      "othello":"linear-gradient(135deg, #3a2010 0%, #1a1030 100%)",
-      "demos":  "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)"
-    };
-
     card.innerHTML = `
-      <div class="card-image" style="background: ${gradients[project.id] || '#1c1c28'}">
-        <img src="${project.localSrc}" alt="${project.title} screenshot"
-             onerror="this.style.display='none'">
-      </div>
       <div class="card-body">
         <div class="card-title">${project.title}</div>
         <div class="card-desc">
