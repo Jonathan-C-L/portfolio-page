@@ -1,7 +1,7 @@
 console.log("header.js connected");
 
 
-function RenderHeader(){
+export function RenderHeader(){
     header.append(NewHeader("Jonathan", {"About": "", "Projects": "", "Contact": ""}));
     HeaderEvents();
 }

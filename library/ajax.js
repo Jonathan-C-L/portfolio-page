@@ -7,7 +7,7 @@
  * @param {*} success - callback function for a successful request
  * @param {*} error - callback function for an unsuccessfull request
  */
-function CallAjax(url, method, postData, dataType, success, error){
+export function CallAjax(url, method, postData, dataType, success, error){
     var ajaxOptions = {};
     ajaxOptions['url'] = url;
     ajaxOptions['method'] = method;
@@ -26,7 +26,7 @@ function CallAjax(url, method, postData, dataType, success, error){
  * @param {*} statusMessage - status message
  * @param {*} errorThrownMessage - error message
  */
-function AjaxError(ajaxRequest, statusMessage, errorThrownMessage){
+export function AjaxError(ajaxRequest, statusMessage, errorThrownMessage){
     console.log(ajaxRequest);
     console.log(statusMessage);
     console.log(errorThrownMessage);

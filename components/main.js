@@ -3,9 +3,13 @@
  * Author: Jonathan Le
  * Date: Dec. 18, 2025
  */
+import { AboutMeData } from "../backend/about.js";
+import { ProjectsData } from "../backend/projects.js";
+import { ContactData } from "../backend/contact.js";
+
 console.log("main.js connected");
 
-function renderAbout(){
+export function renderAbout(){
   const data = AboutMeData();
 
   // Text
@@ -24,7 +28,7 @@ function renderAbout(){
   });
 }
 
-function renderProjects(){
+export function renderProjects(){
   const grid = document.getElementById("projects-grid");
   grid.innerHTML = "";
   ProjectsData().forEach(project => {
@@ -50,7 +54,7 @@ function renderProjects(){
   });
 }
 
-function renderContact(){
+export function renderContact(){
   const card = document.getElementById("contact-card");
   card.innerHTML = "";
   ContactData().forEach(item => {

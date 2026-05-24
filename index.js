@@ -3,6 +3,8 @@
  * Author: Jonathan Le
  * Date: Dec. 18, 2025
  */
+import { renderAbout, renderProjects, renderContact } from "./components/main.js";
+
 console.log("index.js connected");
 // global access variables
 let main = null;
@@ -13,6 +15,7 @@ let body = null;
 // render elements onload
 $(document).ready(()=>{
     // CallAjax("https://api.github.com/users/Jonathan-C-L/repos", "get", {}, "json", Test, AjaxError);
+
     const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("visible"); });
     }, { threshold: 0.12 });

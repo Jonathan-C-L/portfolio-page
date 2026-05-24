@@ -11,7 +11,7 @@ console.log("common.js connected"); // diagnostics
  * @param {*} parent the parent jQuery node to be appended to
  * @param {any} childNodes the child jQuery nodes to append
  */
-function AppendAll(parent, childNodes){
+export function AppendAll(parent, childNodes){
     // exception handling for non-array argument
     if(!Array.isArray(childNodes)){
         console.error("childNodes argument is not an array");
@@ -27,7 +27,7 @@ function AppendAll(parent, childNodes){
  * @param {string} id 
  * @returns 
  */
-function NewElement(element, id = null){
+export function NewElement(element, id = null){
     const newElement = $(`<${element}>`);
     if(id != null)
         newElement.attr("id", id);
@@ -38,7 +38,7 @@ function NewElement(element, id = null){
  * @param {string} title string to be inserted into the h2 tag
  * @returns h2 element with the argument text within
  */
-function AddHeader(title){
+export function AddHeader(title){
     return $(`<h2>${title}</h2>`);
 }
 /**
@@ -46,7 +46,7 @@ function AddHeader(title){
  * @param {string} text string to be inserted into the paragraph
  * @returns paragraph element with the text inside
  */
-function AddParagraph(text){
+export function AddParagraph(text){
     return $(`<p>${text}</p>`);
 }
 /**
@@ -54,7 +54,7 @@ function AddParagraph(text){
  * @param {string} word string argument to have it's first letter capitalized
  * @returns the word with the first letter capitalized
  */
-function CapitalizeFirst(title){
+export function CapitalizeFirst(title){
     if(title.length === 0)
         return "";
     let titleWords = null;

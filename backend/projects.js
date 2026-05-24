@@ -1,6 +1,6 @@
 console.log("projects.js connected");
 
-function ProjectsData(){
+export function ProjectsData(){
   return [
     {
       title: "To-Do List",
