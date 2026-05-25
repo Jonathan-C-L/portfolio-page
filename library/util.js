@@ -1,11 +1,11 @@
-function copyToClipboard(text){
+export function copyToClipboard(text){
   navigator.clipboard.writeText(text).then(
     () => showToast("Copied to clipboard!", false),
     () => showToast("Copy failed", true)
   );
 }
 
-function showToast(msg, isError = false){
+export function showToast(msg, isError = false){
   const t = document.getElementById("toast");
   t.textContent = msg;
   t.className = "toast" + (isError ? " error" : "");

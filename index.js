@@ -3,7 +3,10 @@
  * Author: Jonathan Le
  * Date: Dec. 18, 2025
  */
-import { renderAbout, renderProjects, renderContact } from "./components/main.js";
+import { renderContact } from "./components/contact.js";
+import { renderProjects } from "./components/projects.js";
+import { renderAbout } from "./components/about.js";
+import { renderNav } from "./components/nav.js";
 
 console.log("index.js connected");
 // global access variables
@@ -22,6 +25,7 @@ $(document).ready(()=>{
 
     document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
     
+    renderNav();
     renderAbout();
     renderProjects();
     renderContact();

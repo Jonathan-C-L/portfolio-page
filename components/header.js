@@ -1,25 +1,13 @@
-console.log("header.js connected");
+/**
+ * Author: Jonathan Le
+ * Date: Dec. 18, 2025
+ * Summary: header.js is responsible for rendering the header element of the page, which includes the logo and navigation links
+ */
 
-
-export function RenderHeader(){
+export function renderHeader(){
     header.append(NewHeader("Jonathan", {"About": "", "Projects": "", "Contact": ""}));
-    HeaderEvents();
 }
-function HeaderEvents(){
-    header.click(e=>{
-        switch(e.target.id){
-            case "about":
-                RenderAboutMe(AboutMeData());
-                break;
-            case "projects":
-                RenderProjects(ProjectsData());
-                break;
-            case "contact":
-                RenderContact(ContactData());
-                break;
-        }
-    });
-}
+
 /*********************************************** Header Factory Function *******************************************/
 function NewHeader(logo, links){
     // parent divs for flex styling
