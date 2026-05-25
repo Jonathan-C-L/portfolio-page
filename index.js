@@ -7,6 +7,7 @@ import { renderContact } from "./components/contact.js";
 import { renderProjects } from "./components/projects.js";
 import { renderAbout } from "./components/about.js";
 import { renderNav } from "./components/nav.js";
+import { renderHero } from "./components/hero.js";
 
 console.log("index.js connected");
 // global access variables
@@ -26,6 +27,7 @@ $(document).ready(()=>{
     document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
     
     renderNav();
+    renderHero();
     renderAbout();
     renderProjects();
     renderContact();

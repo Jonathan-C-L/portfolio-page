@@ -1,3 +1,9 @@
+/**
+ * Author: Jonathan Le
+ * Date: May 25, 2026
+ * Summary: nav.js is responsible for rendering the navigation links in the nav element, as well as handling the click events to scroll to the corresponding sections of the page
+ */
+
 const navLink = {
     "About": "about",
     "Projects": "projects",
