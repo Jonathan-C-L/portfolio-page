@@ -1,4 +1,3 @@
-console.log("contact.js connected");
 
 export function ContactData(){
   return [

@@ -1,6 +1,9 @@
-console.log("projects.js connected");
+import { AjaxError, CallAjax } from "../library/ajax.js";
+
 
 export function ProjectsData(){
+  // GetProjects();
+
   return [
     {
       title: "To-Do List",
@@ -25,3 +28,28 @@ export function ProjectsData(){
     }
   ];
 }
+
+function GetProjects(){
+  CallAjax("https://api.github.com/users/Jonathan-C-L/repos", "get", {}, "json", (response) => {
+    console.log(response);
+    response.forEach(project => {
+        if(project["fork"] == true) // if forked, currently it's not my project
+            return;
+        // console.log(CapitalizeFirst(project["name"]));
+        console.log(project["description"]);
+
+    });
+  }, AjaxError);
+  
+}
+
+// function Test(response){
+//     console.log(response);
+//     response.forEach(project => {
+//         if(project["fork"] == true) // if forked, currently it's not my project
+//             return;
+//         // console.log(CapitalizeFirst(project["name"]));
+//         console.log(project["description"]);
+
+//     });
+// }

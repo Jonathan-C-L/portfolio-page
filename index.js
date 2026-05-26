@@ -8,18 +8,10 @@ import { renderProjects } from "./components/projects.js";
 import { renderAbout } from "./components/about.js";
 import { renderNav } from "./components/nav.js";
 import { renderHero } from "./components/hero.js";
-
-console.log("index.js connected");
-// global access variables
-let main = null;
-let header = null;
-let footer = null;
-let body = null;
+import { renderFooter } from "./components/footer.js";
 
 // render elements onload
 $(document).ready(()=>{
-    // CallAjax("https://api.github.com/users/Jonathan-C-L/repos", "get", {}, "json", Test, AjaxError);
-
     const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("visible"); });
     }, { threshold: 0.12 });
@@ -31,21 +23,11 @@ $(document).ready(()=>{
     renderAbout();
     renderProjects();
     renderContact();
+    renderFooter();
 
     // observe newly added fade-in elements
     document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 });
-
-// function Test(response){
-//     console.log(response);
-//     response.forEach(project => {
-//         if(project["fork"] == true) // if forked, currently it's not my project
-//             return;
-//         // console.log(CapitalizeFirst(project["name"]));
-//         console.log(project["description"]);
-
-//     });
-// }
 
 
 

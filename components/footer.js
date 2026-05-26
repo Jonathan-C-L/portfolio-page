@@ -3,9 +3,13 @@
  * Date: Dec. 18, 2025
  * Summary: footer.js is responsible for rendering the footer element of the page, which includes copyright and credits information
  */
+import { AppendAll } from "../library/lib.js";
+
 
 export function renderFooter(){
-    const copyright = `<p>&copy; Copyright 2025 Jonathan Le</p>`;
-    let credits = `<div class='credits'>CRT Effects: <a target='_blank' href='https://codepen.io/thisanimus/pen/OJpaqWz'>https://codepen.io/thisanimus/pen/OJpaqWz</a> (@thisanimus)</div>`;
+    const footer = document.getElementById("footer");
+    const copyright = `<span>© 2025 Jonathan Le</span>`;
+    let credits = `<span>Blink Effect: <a href="https://codepen.io/thisanimus/pen/OJpaqWz" target="_blank">@thisanimus</a></span>
+`;
     AppendAll(footer, [copyright, credits]);
 }

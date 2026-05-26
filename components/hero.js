@@ -7,35 +7,13 @@
 import { showSection } from "./nav.js";
 import { AppendAll } from "../library/lib.js";
 
-const HERO_TAG = "Software Developer";
-const HERO_FNAME = "Jonathan";
-const HERO_LNAME = "Le";
-const HERO_DESC = `"We are what we repeatedly do. Exellence, then, is not an act, but a habit" -Will Durant`;
+const HERO_OPEN_TO_OPPORTUNITIES = true;
 
 export function renderHero(){
     const heroSection = document.getElementById("hero");
-    AppendAll(heroSection, [heroTag(), heroName(), heroDescription(), heroCTAs()]);
+    AppendAll(heroSection, [heroCTAs(), heroBadge(HERO_OPEN_TO_OPPORTUNITIES)]);
 }
 
-
-function heroTag(){
-    const heroTag = document.createElement("div");
-    heroTag.className = "hero-tag fade-in";
-    heroTag.textContent = HERO_TAG;
-    return heroTag;
-}
-function heroName(){
-    const heroName = document.createElement("h1");
-    heroName.className = "hero-name fade-in crt";
-    heroName.innerHTML = `${HERO_FNAME}<br><em>${HERO_LNAME}</em>`;
-    return heroName;
-}
-function heroDescription(){
-    const heroDesc = document.createElement("p");
-    heroDesc.className = "hero-desc fade-in";
-    heroDesc.innerHTML = `<i>${HERO_DESC}</i>`;
-    return heroDesc;
-}
 function heroCTAs(){
     const ctaContainer = document.createElement("div");
     ctaContainer.className = "hero-ctas fade-in";
@@ -51,4 +29,16 @@ function heroCTAs(){
     getInTouchBtn.onclick = () => showSection("contact");
     AppendAll(ctaContainer, [viewProjectsBtn, getInTouchBtn]);
     return ctaContainer;
+}
+function heroBadge(open = true){
+    if (!open) 
+        return null;
+
+    const badge = document.createElement("div");
+    badge.className = "hero-badge";
+    badge.innerHTML = `
+        <div class="dot"></div>
+        Open to opportunities
+    `;
+    return badge;
 }

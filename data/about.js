@@ -1,4 +1,3 @@
-console.log("about.js connected");
 
 export function AboutMeData(){
   return {

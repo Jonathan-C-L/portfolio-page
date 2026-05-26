@@ -4,7 +4,6 @@
  * Author: Jonathan Le
  * Date: Dec. 18, 2025
  */
-console.log("common.js connected"); // diagnostics
 
 /**
  * AppendAll appends all jQuery childnodes to a parent node
@@ -18,6 +17,9 @@ export function AppendAll(parent, childNodes){
         return;
     }
     childNodes.forEach(child => {
+        if (child == null)
+            return;
+
         $(parent).append(child);
     });
 }
