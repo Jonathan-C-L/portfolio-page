@@ -1,14 +1,22 @@
+/**
+ * Author: Jonathan Le
+ * Date: May 25, 2026
+ * Summary: hero.js is responsible for rendering the hero section of the page, which includes a brief introduction and call-to-action
+ */
+
 import { showSection } from "./nav.js";
 import { AppendAll } from "../library/lib.js";
 
 const HERO_TAG = "Software Developer";
-const HERO_NAME = "Jonathan Le";
+const HERO_FNAME = "Jonathan";
+const HERO_LNAME = "Le";
 const HERO_DESC = `"We are what we repeatedly do. Exellence, then, is not an act, but a habit" -Will Durant`;
 
 export function renderHero(){
     const heroSection = document.getElementById("hero");
     AppendAll(heroSection, [heroTag(), heroName(), heroDescription(), heroCTAs()]);
 }
+
 
 function heroTag(){
     const heroTag = document.createElement("div");
@@ -19,7 +27,7 @@ function heroTag(){
 function heroName(){
     const heroName = document.createElement("h1");
     heroName.className = "hero-name fade-in crt";
-    heroName.innerHTML = "Jonathan<br><em>Le</em>";
+    heroName.innerHTML = `${HERO_FNAME}<br><em>${HERO_LNAME}</em>`;
     return heroName;
 }
 function heroDescription(){
