@@ -1,8 +1,9 @@
 import { AjaxError, CallAjax } from "../library/ajax.js";
-
+import { ConvertToTitle } from "../library/lib.js";
+import config from "../config.js";
 
 export function ProjectsData(){
-  // GetProjects();
+  GetProjects();
 
   return [
     {
@@ -30,26 +31,27 @@ export function ProjectsData(){
 }
 
 function GetProjects(){
-  CallAjax("https://api.github.com/users/Jonathan-C-L/repos", "get", {}, "json", (response) => {
-    console.log(response);
-    response.forEach(project => {
-        if(project["fork"] == true) // if forked, currently it's not my project
-            return;
-        // console.log(CapitalizeFirst(project["name"]));
-        console.log(project["description"]);
-
-    });
-  }, AjaxError);
-  
+  fetch('https://api.github.com/users/Jonathan-C-L/repos', {
+    headers: {
+      'Authorization': `Bearer ${config.GITHUB_TOKEN}`,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  })
+    .then(response => response.json())
+    .then(data => ProcessData(data))
+    .catch(err => console.error(err));
 }
 
-// function Test(response){
-//     console.log(response);
-//     response.forEach(project => {
-//         if(project["fork"] == true) // if forked, currently it's not my project
-//             return;
-//         // console.log(CapitalizeFirst(project["name"]));
-//         console.log(project["description"]);
+function ProcessData(rawData){
+  console.log(rawData);
 
-//     });
-// }
+  rawData.forEach(project => {
+    if(project["fork"] == true) // if forked, not my project
+        return;
+
+    console.log(ConvertToTitle(project["name"]));
+    console.log(project["description"]);
+
+  });
+}

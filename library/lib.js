@@ -56,14 +56,20 @@ export function AddParagraph(text){
  * @param {string} word string argument to have it's first letter capitalized
  * @returns the word with the first letter capitalized
  */
-export function CapitalizeFirst(title){
+export function ConvertToTitle(title){
     if(title.length === 0)
         return "";
-    let titleWords = null;
-    if(title.includes("-"))
+
+    let titleWords = [];
+
+    if(title.includes("-")){
         titleWords = title.split("-");
-    else if (title.includes(" "))
-        titleWords = title.split(" ");
-    
-    return newTitle;
+    }
+    if (title.includes(" ")){
+        titleWords = title.split(" ")
+    }
+    if (!titleWords.length)
+        return title.toUpperCase();
+
+    return titleWords.join(" ").toUpperCase();
 }
