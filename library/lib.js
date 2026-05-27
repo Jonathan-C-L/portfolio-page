@@ -52,24 +52,40 @@ export function AddParagraph(text){
     return $(`<p>${text}</p>`);
 }
 /**
- * CapitalizeFirst will capitalizes the first letter of a word - NOT FUNCTIONAL ATM
+ * ConvertToTitle
  * @param {string} word string argument to have it's first letter capitalized
  * @returns the word with the first letter capitalized
  */
-export function ConvertToTitle(title){
+export function ConvertToTitle(title, separator = " "){
     if(title.length === 0)
         return "";
 
     let titleWords = [];
 
+    // Dash character
     if(title.includes("-")){
         titleWords = title.split("-");
     }
-    if (title.includes(" ")){
-        titleWords = title.split(" ")
+    // Space character
+    else if (title.includes(" ")){
+        titleWords = title.split(" ");
     }
-    if (!titleWords.length)
-        return title.toUpperCase();
+    // Empty Array
+    else if (!titleWords.length)
+        return TitleCase([title]);
 
-    return titleWords.join(" ").toUpperCase();
+    return TitleCase(titleWords).join(separator);
+}
+
+export function TitleCase(stringArray){
+    for(let i = 0; i < stringArray.length; i++){
+        // Edge case of single letters (i.e. "C")
+        if (stringArray[i].length == 1){
+            stringArray[i] = stringArray[i].toUpperCase();
+        } else{
+            stringArray[i] = stringArray[i][0].toUpperCase() + stringArray[i].substring(1);
+        }
+    }
+
+    return stringArray;
 }
