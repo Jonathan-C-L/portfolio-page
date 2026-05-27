@@ -6,11 +6,12 @@
 
 import { ProjectsData } from "../data/projects.js";
 
-export function renderProjects(){
+export async function renderProjects(){
   const grid = document.getElementById("projects-grid");
   grid.innerHTML = "";
 
-  ProjectsData().forEach(project => {
+  const data = await ProjectsData();
+  data.forEach(project => {
     const card = document.createElement("a");
     card.className = "project-card";
     card.href = project.repo;
@@ -22,7 +23,7 @@ export function renderProjects(){
         <div class="card-title">${project.title}</div>
         <div class="card-desc">
           ${project.desc}<br><br>
-          <i>Learned: ${project.learned}</i>
+          <i>LEARNED: ${project.learned}</i>
         </div>
       </div>
       <div class="card-footer">
