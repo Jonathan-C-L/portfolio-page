@@ -23,7 +23,7 @@ export async function renderProjects(){
         <div class="card-title">${project.title}</div>
         <div class="card-desc">
           ${project.desc}<br><br>
-          <i>LEARNED: ${project.learned}</i>
+          <i>Learned: ${project.learned}</i>
         </div>
       </div>
       <div class="card-footer">
