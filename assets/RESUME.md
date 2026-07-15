@@ -1,0 +1,2 @@
+## Github Actions for Automatic Resume Updates
+The assets folder stores my version controlled resume and it uses Github Actions to automatically receive an updated version of my resume when I make any new changes to it.
