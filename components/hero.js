@@ -11,7 +11,7 @@ const HERO_OPEN_TO_OPPORTUNITIES = true;
 
 export function renderHero(){
     const heroSection = document.getElementById("hero");
-    AppendAll(heroSection, [heroCTAs(), heroBadge(HERO_OPEN_TO_OPPORTUNITIES)]);
+    AppendAll(heroSection, [heroCTAs()]);
 }
 
 function heroCTAs(){
